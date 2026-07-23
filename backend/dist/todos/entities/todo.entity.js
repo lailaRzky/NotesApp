@@ -53,4 +53,3 @@ __decorate([
 exports.Todo = Todo = __decorate([
     (0, typeorm_1.Entity)('todos')
 ], Todo);
-//# sourceMappingURL=todo.entity.js.map
