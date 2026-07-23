@@ -43,4 +43,3 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
 ], CreateTodoDto.prototype, "dueDate", void 0);
-//# sourceMappingURL=create-todo.dto.js.map
