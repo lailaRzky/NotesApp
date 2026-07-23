@@ -9,38 +9,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateTodoDto = void 0;
+exports.CreateNoteDto = void 0;
 const class_validator_1 = require("class-validator");
-class CreateTodoDto {
+class CreateNoteDto {
 }
-exports.CreateTodoDto = CreateTodoDto;
+exports.CreateNoteDto = CreateNoteDto;
 __decorate([
     (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)({ message: 'Title wajib diisi' }),
-    (0, class_validator_1.MaxLength)(100, { message: 'Title tidak boleh lebih dari 100 karakter' }),
+    (0, class_validator_1.IsNotEmpty)({ message: 'Judul wajib diisi' }),
+    (0, class_validator_1.MaxLength)(120, { message: 'Judul tidak boleh lebih dari 120 karakter' }),
     __metadata("design:type", String)
-], CreateTodoDto.prototype, "title", void 0);
+], CreateNoteDto.prototype, "title", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
-], CreateTodoDto.prototype, "description", void 0);
+], CreateNoteDto.prototype, "content", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsIn)(['pribadi', 'kuliah', 'kerja', 'lainnya'], {
+        message: 'Category harus salah satu dari: pribadi, kuliah, kerja, lainnya',
+    }),
+    __metadata("design:type", String)
+], CreateNoteDto.prototype, "category", void 0);
 __decorate([
     (0, class_validator_1.IsBoolean)(),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Boolean)
-], CreateTodoDto.prototype, "completed", void 0);
+], CreateNoteDto.prototype, "isPinned", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsIn)(['low', 'medium', 'high'], {
-        message: 'Priority harus salah satu dari: low, medium, high',
+    (0, class_validator_1.Matches)(/^#([0-9A-Fa-f]{6})$/, {
+        message: 'Warna harus berupa kode hex, contoh: #fff3b0',
     }),
     __metadata("design:type", String)
-], CreateTodoDto.prototype, "priority", void 0);
-__decorate([
-    (0, class_validator_1.IsDateString)({}, { message: 'dueDate harus berformat tanggal yang valid (YYYY-MM-DD)' }),
-    (0, class_validator_1.IsOptional)(),
-    __metadata("design:type", String)
-], CreateTodoDto.prototype, "dueDate", void 0);
-//# sourceMappingURL=create-todo.dto.js.map
+], CreateNoteDto.prototype, "color", void 0);
+//# sourceMappingURL=create-note.dto.js.map

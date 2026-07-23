@@ -10,7 +10,7 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
 const typeorm_1 = require("@nestjs/typeorm");
-const todos_module_1 = require("./todos/todos.module");
+const notes_module_1 = require("./notes/notes.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -36,8 +36,7 @@ exports.AppModule = AppModule = __decorate([
                 }),
                 inject: [config_1.ConfigService],
             }),
-            todos_module_1.TodosModule,
+            notes_module_1.NotesModule,
         ],
     })
 ], AppModule);
-//# sourceMappingURL=app.module.js.map

@@ -8,7 +8,7 @@ async function bootstrap() {
     app.enableCors({
         origin: ['http://localhost:5173', 'http://localhost:5174'],
         credentials: true,
-        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
         allowedHeaders: ['Content-Type', 'Authorization'],
     });
     app.useGlobalPipes(new common_1.ValidationPipe({
@@ -16,9 +16,9 @@ async function bootstrap() {
         forbidNonWhitelisted: true,
         transform: true,
     }));
-    const port = process.env.PORT || 3000;
+    const port = process.env.PORT || 3001;
     await app.listen(port);
-    console.log(`Todo API berjalan di http://localhost:${port}`);
+    console.log(`Notes API berjalan di http://localhost:${port}`);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map

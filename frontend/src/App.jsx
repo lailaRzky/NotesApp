@@ -1,10 +1,11 @@
+import './styles/app.css';
 import { ToastProvider } from './context/ToastContext';
-import TodoApp from './pages/TodoApp';
+import NotesApp from './pages/NotesApp';
 
 function App() {
   return (
     <ToastProvider>
-      <TodoApp />
+      <NotesApp />
     </ToastProvider>
   );
 }

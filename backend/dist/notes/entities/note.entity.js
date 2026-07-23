@@ -9,48 +9,48 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Todo = void 0;
+exports.Note = void 0;
 const typeorm_1 = require("typeorm");
-let Todo = class Todo {
+let Note = class Note {
 };
-exports.Todo = Todo;
+exports.Note = Note;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], Todo.prototype, "id", void 0);
+], Note.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ length: 100 }),
+    (0, typeorm_1.Column)({ length: 120 }),
     __metadata("design:type", String)
-], Todo.prototype, "title", void 0);
+], Note.prototype, "title", void 0);
 __decorate([
     (0, typeorm_1.Column)({ type: 'text', nullable: true }),
     __metadata("design:type", String)
-], Todo.prototype, "description", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ default: false }),
-    __metadata("design:type", Boolean)
-], Todo.prototype, "completed", void 0);
+], Note.prototype, "content", void 0);
 __decorate([
     (0, typeorm_1.Column)({
         type: 'enum',
-        enum: ['low', 'medium', 'high'],
-        default: 'low',
+        enum: ['pribadi', 'kuliah', 'kerja', 'lainnya'],
+        default: 'lainnya',
     }),
     __metadata("design:type", String)
-], Todo.prototype, "priority", void 0);
+], Note.prototype, "category", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'date', nullable: true }),
+    (0, typeorm_1.Column)({ default: false }),
+    __metadata("design:type", Boolean)
+], Note.prototype, "isPinned", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ length: 7, default: '#ffffff' }),
     __metadata("design:type", String)
-], Todo.prototype, "dueDate", void 0);
+], Note.prototype, "color", void 0);
 __decorate([
     (0, typeorm_1.CreateDateColumn)(),
     __metadata("design:type", Date)
-], Todo.prototype, "createdAt", void 0);
+], Note.prototype, "createdAt", void 0);
 __decorate([
     (0, typeorm_1.UpdateDateColumn)(),
     __metadata("design:type", Date)
-], Todo.prototype, "updatedAt", void 0);
-exports.Todo = Todo = __decorate([
-    (0, typeorm_1.Entity)('todos')
-], Todo);
-//# sourceMappingURL=todo.entity.js.map
+], Note.prototype, "updatedAt", void 0);
+exports.Note = Note = __decorate([
+    (0, typeorm_1.Entity)('notes')
+], Note);
+//# sourceMappingURL=note.entity.js.map

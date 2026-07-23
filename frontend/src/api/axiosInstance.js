@@ -10,29 +10,26 @@ const api = axios.create({
 
 api.interceptors.request.use(
   (config) => {
-    console.log(`Request: ${config.method?.toUpperCase()} ${config.url}`);
-    console.log('Data:', config.data || 'No body');
+    const time = new Date().toLocaleTimeString();
+    console.log(`[${time}]${config.method?.toUpperCase()} ${config.url}`, config.data ?? '');
     return config;
   },
-  (error) => {
-    console.error('Request Error:', error);
-    return Promise.reject(error);
-  },
+  (error) => Promise.reject(error),
 );
 
 
 api.interceptors.response.use(
   (response) => {
-    console.log(`Response: ${response.status} ${response.config.url}`);
+    console.log(`${response.status} ${response.config.url}`);
     return response;
   },
   (error) => {
     if (error.response) {
-      console.error(`Server Error: ${error.response.status}`, error.response.data);
+      console.error(`${error.response.status} ${error.config?.url}`, error.response.data);
     } else if (error.request) {
-      console.error('No Response from Server:', error.request);
+      console.error('Tidak ada respons dari server (backend mati?)');
     } else {
-      console.error('Request Setup Error:', error.message);
+      console.error('Kesalahan saat membuat request:', error.message);
     }
     return Promise.reject(error);
   },
