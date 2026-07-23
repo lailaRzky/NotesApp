@@ -21,4 +21,3 @@ async function bootstrap() {
     console.log(`Notes API berjalan di http://localhost:${port}`);
 }
 bootstrap();
-//# sourceMappingURL=main.js.map
