@@ -79,4 +79,3 @@ exports.TodosController = TodosController = __decorate([
     (0, common_1.Controller)('api/v1/todos'),
     __metadata("design:paramtypes", [todos_service_1.TodosService])
 ], TodosController);
-//# sourceMappingURL=todos.controller.js.map
